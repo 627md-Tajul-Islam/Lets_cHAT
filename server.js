@@ -7,11 +7,13 @@ app.set('view engine', 'ejs')
 app.use(express.static('public'))
 
 app.get('/', (req,res) => {
-
+res.redirect('/${roomId}')
 })
 
 app.get('/:room', (req,res)=>{
-    
+    res.render('room', {
+        roomId: req.params.room
+    })
 })
 
 server.listen(3000) 
